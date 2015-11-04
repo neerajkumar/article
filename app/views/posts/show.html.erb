@@ -15,5 +15,17 @@
   <%= @post.description %>
 </p>
 
+<fieldset>
+  <legend>New Comment</legend>
+  <%= render partial: "comments/form", locals: {comment: @comment} -%>
+</fieldset>
+
+<br />
+
+<% @comments.each do |comment| -%>
+  <div><%= comment.description -%></div>
+  <div style="float: right"><strong><%= comment.author -%></strong></div>
+<% end %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
